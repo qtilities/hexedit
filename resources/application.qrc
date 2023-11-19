@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="open">icons/document-open.svgz</file>
+        <file alias="find">icons/document-preview.svgz</file>
+        <file alias="save">icons/document-save.svgz</file>
+        <file alias="redo">icons/edit-redo.svgz</file>
+        <file alias="undo">icons/edit-undo.svgz</file>
+        <file alias="appicon">icons/hexedit.svg</file>
+    </qresource>
+</RCC>

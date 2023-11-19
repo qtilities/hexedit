@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de_DE">
+<TS version="2.1" language="cs_CZ">
 <context>
     <name>MainWindow</name>
     <message>
         <source>About HexEdit</source>
-        <translation type="obsolete">Über HexEdit</translation>
+        <translation type="obsolete">O HexEdit</translation>
     </message>
     <message>
-        <source>The HexEdit example is a short Demo of the QHexEdit Widget.</source>
-        <translation type="obsolete">Das HexEdit Beispiel ist eine einfache Demo Anwendung für das QHexEdit Widget.</translation>
+        <source>The HexEdit example is a short Demo of the HexEdit Widget.</source>
+        <translation type="obsolete">Příklad HexEdit je krátká ukázka doplňku HexEdit.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="100"/>
         <source>Save As</source>
-        <translation>Speichern unter</translation>
+        <translation>Uložit jako</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="110"/>
         <location filename="../mainwindow.cpp" line="132"/>
         <source>Save To Readable File</source>
-        <translation>Als lesbare Datei speichern</translation>
+        <translation>Uložit do čitelného souboru</translation>
     </message>
     <message>
         <source>HexEdit</source>
@@ -28,28 +28,28 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="61"/>
-        <source>About QHexEdit</source>
-        <translation>Über QHexEdit</translation>
+        <source>About HexEdit</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="62"/>
-        <source>The QHexEdit example is a short Demo of the QHexEdit Widget.</source>
-        <translation>Das QHexEdit Beispiel ist eine einfache Demo Anwendung für das QHexEdit Widget.</translation>
+        <source>The HexEdit example is a short Demo of the HexEdit Widget.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="115"/>
         <location filename="../mainwindow.cpp" line="137"/>
         <location filename="../mainwindow.cpp" line="347"/>
         <location filename="../mainwindow.cpp" line="399"/>
-        <source>QHexEdit</source>
-        <translation>QHexEdit</translation>
+        <source>HexEdit</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="116"/>
         <location filename="../mainwindow.cpp" line="138"/>
         <source>Cannot write file %1:
 %2.</source>
-        <translation>Kann Detei %1 nicht schreiben:
+        <translation>Nelze zapsat soubor %1:
 %2.</translation>
     </message>
     <message>
@@ -57,196 +57,192 @@
         <location filename="../mainwindow.cpp" line="148"/>
         <location filename="../mainwindow.cpp" line="406"/>
         <source>File saved</source>
-        <translation>Datei gespeichert</translation>
+        <translation>Soubor uložen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="162"/>
         <source>Overwrite</source>
-        <translation>Überschreiben</translation>
+        <translation>Přepsat</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
         <source>Insert</source>
-        <translation>Einfügen</translation>
+        <translation>Vložit</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="210"/>
         <source>&amp;Open...</source>
-        <translation>Öf&amp;fnen...</translation>
+        <translation>&amp;Otevřít...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="212"/>
         <source>Open an existing file</source>
-        <translation>Existierende Datei öffnen</translation>
+        <translation>Otevřít stávající soubor</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="215"/>
         <source>&amp;Save</source>
-        <translation>&amp;Speichern</translation>
+        <translation>&amp;Uložit</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="217"/>
         <source>Save the document to disk</source>
-        <translation>Dokument auf Platte speichern</translation>
+        <translation>Uložit dokument na disk</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
         <source>Save &amp;As...</source>
-        <translation>Speichern &amp;unter...</translation>
+        <translation>Uložit &amp;jako...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
         <source>Save the document under a new name</source>
-        <translation>Dokument unter neuem Namen speichern</translation>
+        <translation>Uložit dokument pod novým názvem</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="225"/>
         <source>Save &amp;Readable...</source>
-        <translation>Als &amp;lesbare Datei speichern...</translation>
+        <translation>Uložit Č&amp;itelné...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="226"/>
         <source>Save document in readable form</source>
-        <translation>Das Dokument in lesbarer From speichern</translation>
+        <translation>Uložit dokument v čitelné podobě</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="229"/>
         <source>E&amp;xit</source>
-        <translation>&amp;Beenden</translation>
+        <translation>&amp;Ukončit</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="231"/>
         <source>Exit the application</source>
-        <translation>Applikation beenden</translation>
+        <translation>Ukončit program</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="234"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Wiederherstellen</translation>
+        <translation>&amp;Zpět</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="238"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Rückgängig</translation>
+        <translation>&amp;Znovu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="242"/>
         <source>&amp;Save Selection Readable...</source>
-        <translation>&amp;Auswahl in lesbarer Form speichern...</translation>
+        <translation>&amp;Uložit výběr čitelný...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="243"/>
         <source>Save selection in readable form</source>
-        <translation>Speichere die Auswahl in lesbarer Form</translation>
+        <translation>Uložit výběr v čitelné podobě</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="246"/>
         <source>&amp;About</source>
-        <translation>Ü&amp;ber</translation>
+        <translation>&amp;O programu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="247"/>
         <source>Show the application&apos;s About box</source>
-        <translation>Zeige Informationen zur Anwendungj</translation>
+        <translation>Ukázat informace o programu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="250"/>
         <source>About &amp;Qt</source>
-        <translation>Über &amp;Qt</translation>
+        <translation>O &amp;Qt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="251"/>
         <source>Show the Qt library&apos;s About box</source>
-        <translation>Zeige Informationen über Qt</translation>
+        <translation>Ukázat informace oknihovně Qt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="261"/>
         <source>Find next occurrence of the searched pattern</source>
-        <translation>Zeige die nächste Fundstelle mit dem gleichen Suchmuster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="264"/>
         <source>&amp;Options</source>
-        <translation>&amp;Optionen</translation>
+        <translation>&amp;Volby</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="265"/>
         <source>Show the Dialog to select applications options</source>
-        <translation>Zeige den Dialog, um Optionen der Anwendunge einzustellen</translation>
+        <translation>Ukázat dialog pro výběr voleb programu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="337"/>
         <source>Edit</source>
-        <translation type="unfinished">Bearbeiten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="400"/>
         <source>Cannot write file %1.</source>
-        <translation type="unfinished">Kann Datei %1 nicht schreiben.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="254"/>
         <source>&amp;Find/Replace</source>
-        <translation>&amp;Suchen/Ersetzen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="41"/>
         <source>Drop File: </source>
-        <translation type="unfinished">Datei erhalten:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="256"/>
         <source>Show the Dialog for finding and replacing</source>
-        <translation>Zeige den Suchen/Ersetzen Dialog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="259"/>
         <source>Find &amp;next</source>
-        <translation>&amp;Weitersuchen</translation>
-    </message>
-    <message>
-        <source>Find next occurance of the sarched pattern</source>
-        <translation type="obsolete">Zeige die nächste Fundstelle mit dem gleichen Suchmuster</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="271"/>
         <source>&amp;File</source>
-        <translation>&amp;Datei</translation>
+        <translation>&amp;Soubor</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="279"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Beearbeiten</translation>
+        <translation>Ú&amp;pravy</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="289"/>
         <source>&amp;Help</source>
-        <translation>&amp;Hilfe</translation>
+        <translation>&amp;Nápověda</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="298"/>
         <source>Address:</source>
-        <translation>Adresse:</translation>
+        <translation>Adresa:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="309"/>
         <source>Size:</source>
-        <translation>Größe:</translation>
+        <translation>Velikost:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Mode:</source>
-        <translation>Mode:</translation>
+        <translation>Režim:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="329"/>
         <source>Ready</source>
-        <translation>Fertig</translation>
+        <translation>Připraven</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="334"/>
         <source>File</source>
-        <translation>Datei</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <source>SDI</source>
@@ -256,195 +252,191 @@
         <location filename="../mainwindow.cpp" line="348"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Kann Datei %1 nicht lesen:
+        <translation>Nelze číst soubor %1:
 %2.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="354"/>
         <source>File loaded</source>
-        <translation>Datei geladen</translation>
+        <translation>Soubor nahrán</translation>
     </message>
 </context>
 <context>
     <name>OptionsDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="obsolete">Optionen</translation>
+        <translation type="obsolete">Dialog</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="14"/>
-        <source>QHexEdit - Options</source>
-        <translation>QHexEdit - Optionen</translation>
+        <source>HexEdit - Options</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="20"/>
         <source>Flags</source>
-        <translation>Eigenschaften</translation>
+        <translation>Příznaky</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="26"/>
         <source>ReadOnly</source>
-        <translation>Nur lesen</translation>
+        <translation>PouzeProČtení</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="33"/>
         <source>Higlighting</source>
-        <translation>Hervorheben</translation>
+        <translation>Zvýraznění</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="40"/>
         <source>Overwrite Mode</source>
-        <translation>Überschreibe Modus</translation>
+        <translation>Režim přepisu</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="47"/>
         <location filename="../optionsdialog.ui" line="195"/>
         <source>Address Area</source>
-        <translation>Adressfeld</translation>
+        <translation>Oblast s adresou</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="54"/>
         <source>Ascii Area</source>
-        <translation>Ascii-Feld</translation>
+        <translation>Oblast ASCII</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="64"/>
         <source>Colors and Fonts</source>
-        <translation>Farben und Schriftarten</translation>
+        <translation>Barvy a písma</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="70"/>
         <source>Highlighting Color</source>
-        <translation>Farbe Hervorhebung</translation>
+        <translation>Barva pro zvýraznění</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="102"/>
         <source>Address Area Color</source>
-        <translation>Farbe Adressfeld</translation>
+        <translation>Barva pro oblast s adresou</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="159"/>
         <source>Selection Color</source>
-        <translation>Farbe Markierung</translation>
+        <translation>Barva výběru</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="166"/>
         <source>Widget Font</source>
-        <translation>Font-Auswahl</translation>
+        <translation>Písmo doplňku</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="185"/>
         <source>01 23 45 67 89 ab cd ef</source>
-        <translation></translation>
+        <translation>01 23 45 67 89 ab cd ef</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="201"/>
         <source>Address Area Width</source>
-        <translation></translation>
+        <translation>Šířka oblasti s adresou</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="224"/>
         <source>Hex Area</source>
-        <translation type="unfinished">Hexadezimalfeld</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="230"/>
         <source>Bytes per Line</source>
-        <translation type="unfinished">Bytes pro Zeile</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SearchDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="obsolete">Optionen</translation>
+        <translation type="obsolete">Dialog</translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="14"/>
-        <source>QHexEdit - Find/Replace</source>
-        <translation>QHexEdit - Suchen/Ersetzen</translation>
+        <source>HexEdit - Find/Replace</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="22"/>
         <source>Find</source>
-        <translation>Suchen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="29"/>
         <location filename="../searchdialog.ui" line="65"/>
         <source>Hex</source>
-        <translation>Hex</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="34"/>
         <location filename="../searchdialog.ui" line="70"/>
         <source>UTF-8</source>
-        <translation>UTF-8</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="58"/>
         <source>Replace</source>
-        <translation>Ersetzen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="94"/>
         <source>Options</source>
-        <translation>Optionen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="100"/>
         <source>&amp;Backwards</source>
-        <translation>&amp;Rückwärts</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="107"/>
         <source>&amp;Prompt on replace</source>
-        <translation>Vor dem Ersetzen &amp;nachfragen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="121"/>
         <source>&amp;Find</source>
-        <translation>&amp;Suchen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="124"/>
         <source>F3</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="134"/>
         <source>&amp;Replace</source>
-        <translation>&amp;Ersetzen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="141"/>
         <source>Replace &amp;All</source>
-        <translation>&amp;Alle ersetzen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.ui" line="148"/>
         <source>&amp;Close</source>
-        <translation>&amp;Schließen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.cpp" line="73"/>
         <location filename="../searchdialog.cpp" line="99"/>
-        <source>QHexEdit</source>
-        <translation>QHexEdit</translation>
+        <source>HexEdit</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.cpp" line="73"/>
         <source>%1 occurrences replaced.</source>
-        <translation>%1 Vorkommnisse ersetzt.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../searchdialog.cpp" line="100"/>
         <source>Replace occurrence?</source>
-        <translation>Vorkommnis ersetzen?</translation>
-    </message>
-    <message>
-        <source>Replace occurrance?</source>
-        <translation type="obsolete">Vorkommnis ersetzen?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -452,17 +444,17 @@
     <message>
         <location filename="../../src/commands.cpp" line="112"/>
         <source>Inserting %1 bytes</source>
-        <translation type="unfinished">%1 Bytes eingefügt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/commands.cpp" line="134"/>
         <source>Delete %1 chars</source>
-        <translation type="unfinished">%1 Zeiche(n) gelöscht</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/commands.cpp" line="159"/>
         <source>Overwrite %1 chars</source>
-        <translation type="unfinished">%1 Zeichen überschrieben</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

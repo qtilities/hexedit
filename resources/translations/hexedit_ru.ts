@@ -5,13 +5,13 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.cpp" line="58"/>
-        <source>About QHexEdit</source>
-        <translation>Про QHexEdit</translation>
+        <source>About HexEdit</source>
+        <translation>Про HexEdit</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="59"/>
-        <source>The QHexEdit example is a short Demo of the QHexEdit Widget.</source>
-        <translation>QHexEdit пример это короткая демонстрация работы QHexEdit компоненты.</translation>
+        <source>The HexEdit example is a short Demo of the HexEdit Widget.</source>
+        <translation>HexEdit пример это короткая демонстрация работы HexEdit компоненты.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="97"/>
@@ -30,8 +30,8 @@
         <location filename="../mainwindow.cpp" line="134"/>
         <location filename="../mainwindow.cpp" line="344"/>
         <location filename="../mainwindow.cpp" line="396"/>
-        <source>QHexEdit</source>
-        <translation>QHexEdit</translation>
+        <source>HexEdit</source>
+        <translation>HexEdit</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="113"/>
@@ -245,8 +245,8 @@
     <name>OptionsDialog</name>
     <message>
         <location filename="../optionsdialog.ui" line="14"/>
-        <source>QHexEdit - Options</source>
-        <translation>QHexEdit - Настройки</translation>
+        <source>HexEdit - Options</source>
+        <translation>HexEdit - Настройки</translation>
     </message>
     <message>
         <location filename="../optionsdialog.ui" line="20"/>
@@ -329,7 +329,7 @@
     <name>SearchDialog</name>
     <message>
         <location filename="../searchdialog.ui" line="14"/>
-        <source>QHexEdit - Find/Replace</source>
+        <source>HexEdit - Find/Replace</source>
         <translation>QHExEdit - Поиск/Замена</translation>
     </message>
     <message>
@@ -397,8 +397,8 @@
     <message>
         <location filename="../searchdialog.cpp" line="73"/>
         <location filename="../searchdialog.cpp" line="99"/>
-        <source>QHexEdit</source>
-        <translation>QHexEdit</translation>
+        <source>HexEdit</source>
+        <translation>HexEdit</translation>
     </message>
     <message>
         <location filename="../searchdialog.cpp" line="73"/>
