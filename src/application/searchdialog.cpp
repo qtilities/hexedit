@@ -1,9 +1,9 @@
-#include "searchdialog.h"
+#include "searchdialog.hpp"
 #include "ui_searchdialog.h"
 
 #include <QMessageBox>
 
-SearchDialog::SearchDialog(QHexEdit *hexEdit, QWidget *parent) :
+SearchDialog::SearchDialog(HexEdit *hexEdit, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SearchDialog)
 {
@@ -70,7 +70,7 @@ void SearchDialog::on_pbReplaceAll_clicked()
     }
 
     if (replaceCounter > 0)
-        QMessageBox::information(this, tr("QHexEdit"), QString(tr("%1 occurrences replaced.")).arg(replaceCounter));
+        QMessageBox::information(this, tr("HexEdit"), QString(tr("%1 occurrences replaced.")).arg(replaceCounter));
 }
 
 
@@ -96,7 +96,7 @@ qint64 SearchDialog::replaceOccurrence(qint64 idx, const QByteArray &replaceBa)
     {
         if (ui->cbPrompt->isChecked())
         {
-            result = QMessageBox::question(this, tr("QHexEdit"),
+            result = QMessageBox::question(this, tr("HexEdit"),
                      tr("Replace occurrence?"),
                      QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 

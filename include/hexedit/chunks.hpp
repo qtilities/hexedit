@@ -1,15 +1,14 @@
-#ifndef CHUNKS_H
-#define CHUNKS_H
+#pragma once
 
 /** \cond docNever */
 
-/*! The Chunks class is the storage backend for QHexEdit.
+/*! The Chunks class is the storage backend for HexEdit.
  *
- * When QHexEdit loads data, Chunks access them using a QIODevice interface. When the app uses
+ * When HexEdit loads data, Chunks access them using a QIODevice interface. When the app uses
  * a QByteArray interface, QBuffer is used to provide again a QIODevice like interface. No data
  * will be changed, therefore Chunks opens the QIODevice in QIODevice::ReadOnly mode. After every
  * access Chunks closes the QIODevice, that's why external applications can overwrite files while
- * QHexEdit shows them.
+ * HexEdit shows them.
  *
  * When the the user starts to edit the data, Chunks creates a local copy of a chunk of data (4
  * kilobytes) and notes all changes there. Parallel to that chunk, there is a second chunk,
@@ -73,5 +72,3 @@ public:
 };
 
 /** \endcond docNever */
-
-#endif // CHUNKS_H

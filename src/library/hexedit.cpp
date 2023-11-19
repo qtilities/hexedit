@@ -1,16 +1,14 @@
+#include <hexedit/hexedit.hpp>
+
 #include <QApplication>
 #include <QClipboard>
 #include <QKeyEvent>
 #include <QPainter>
 #include <QScrollBar>
 
-#include "qhexedit.h"
 #include <algorithm>
 
-
-// ********************************************************************** Constructor, destructor
-
-QHexEdit::QHexEdit(QWidget *parent) : QAbstractScrollArea(parent)
+HexEdit::HexEdit(QWidget *parent) : QAbstractScrollArea(parent)
     , _addressArea(true)
     , _addressWidth(4)
     , _asciiArea(true)
@@ -58,13 +56,13 @@ QHexEdit::QHexEdit(QWidget *parent) : QAbstractScrollArea(parent)
 
 }
 
-QHexEdit::~QHexEdit()
+HexEdit::~HexEdit()
 {
 }
 
 // ********************************************************************** Properties
 
-void QHexEdit::setAddressArea(bool addressArea)
+void HexEdit::setAddressArea(bool addressArea)
 {
     _addressArea = addressArea;
     adjust();
@@ -72,67 +70,67 @@ void QHexEdit::setAddressArea(bool addressArea)
     viewport()->update();
 }
 
-bool QHexEdit::addressArea()
+bool HexEdit::addressArea()
 {
     return _addressArea;
 }
 
-void QHexEdit::setAddressAreaColor(const QColor &color)
+void HexEdit::setAddressAreaColor(const QColor &color)
 {
     _addressAreaColor = color;
     viewport()->update();
 }
 
-QColor QHexEdit::addressAreaColor()
+QColor HexEdit::addressAreaColor()
 {
     return _addressAreaColor;
 }
 
-void QHexEdit::setAddressFontColor(const QColor &color)
+void HexEdit::setAddressFontColor(const QColor &color)
 {
     _addressFontColor = color;
     viewport()->update();
 }
 
-QColor QHexEdit::addressFontColor()
+QColor HexEdit::addressFontColor()
 {
     return _addressFontColor;
 }
 
-void QHexEdit::setAsciiAreaColor(const QColor &color)
+void HexEdit::setAsciiAreaColor(const QColor &color)
 {
     _asciiAreaColor = color;
     viewport()->update();
 }
 
-QColor QHexEdit::asciiAreaColor()
+QColor HexEdit::asciiAreaColor()
 {
     return _asciiAreaColor;
 }
 
-void QHexEdit::setAsciiFontColor(const QColor &color)
+void HexEdit::setAsciiFontColor(const QColor &color)
 {
     _asciiFontColor = color;
     viewport()->update();
 }
 
-QColor QHexEdit::asciiFontColor()
+QColor HexEdit::asciiFontColor()
 {
     return _asciiFontColor;
 }
 
-void QHexEdit::setHexFontColor(const QColor &color)
+void HexEdit::setHexFontColor(const QColor &color)
 {
     _hexFontColor = color;
     viewport()->update();
 }
 
-QColor QHexEdit::hexFontColor()
+QColor HexEdit::hexFontColor()
 {
     return _hexFontColor;
 }
 
-void QHexEdit::setAddressOffset(qint64 addressOffset)
+void HexEdit::setAddressOffset(qint64 addressOffset)
 {
     _addressOffset = addressOffset;
     adjust();
@@ -140,12 +138,12 @@ void QHexEdit::setAddressOffset(qint64 addressOffset)
     viewport()->update();
 }
 
-qint64 QHexEdit::addressOffset()
+qint64 HexEdit::addressOffset()
 {
     return _addressOffset;
 }
 
-void QHexEdit::setAddressWidth(int addressWidth)
+void HexEdit::setAddressWidth(int addressWidth)
 {
     _addressWidth = addressWidth;
     adjust();
@@ -153,7 +151,7 @@ void QHexEdit::setAddressWidth(int addressWidth)
     viewport()->update();
 }
 
-int QHexEdit::addressWidth()
+int HexEdit::addressWidth()
 {
     qint64 size = _chunks->size();
     int n = 1;
@@ -168,7 +166,7 @@ int QHexEdit::addressWidth()
         return _addressWidth;
 }
 
-void QHexEdit::setAsciiArea(bool asciiArea)
+void HexEdit::setAsciiArea(bool asciiArea)
 {
     if (!asciiArea)
         _editAreaIsAscii = false;
@@ -178,12 +176,12 @@ void QHexEdit::setAsciiArea(bool asciiArea)
     viewport()->update();
 }
 
-bool QHexEdit::asciiArea()
+bool HexEdit::asciiArea()
 {
     return _asciiArea;
 }
 
-void QHexEdit::setBytesPerLine(int count)
+void HexEdit::setBytesPerLine(int count)
 {
     _bytesPerLine = count;
     _hexCharsInLine = count * 3 - 1;
@@ -193,12 +191,12 @@ void QHexEdit::setBytesPerLine(int count)
     viewport()->update();
 }
 
-int QHexEdit::bytesPerLine()
+int HexEdit::bytesPerLine()
 {
     return _bytesPerLine;
 }
 
-void QHexEdit::setCursorPosition(qint64 position)
+void HexEdit::setCursorPosition(qint64 position)
 {
     // 1. delete old cursor
     _blink = false;
@@ -235,7 +233,7 @@ void QHexEdit::setCursorPosition(qint64 position)
     emit currentAddressChanged(_bPosCurrent);
 }
 
-qint64 QHexEdit::cursorPosition(QPoint pos)
+qint64 HexEdit::cursorPosition(QPoint pos)
 {
     // Calc cursor position depending on a graphical position
     qint64 result = -1;
@@ -260,80 +258,80 @@ qint64 QHexEdit::cursorPosition(QPoint pos)
     return result;
 }
 
-qint64 QHexEdit::cursorPosition()
+qint64 HexEdit::cursorPosition()
 {
     return _cursorPosition;
 }
 
-void QHexEdit::setData(const QByteArray &ba)
+void HexEdit::setData(const QByteArray &ba)
 {
     _data = ba;
     _bData.setData(_data);
     setData(_bData);
 }
 
-QByteArray QHexEdit::data()
+QByteArray HexEdit::data()
 {
     return _chunks->data(0, -1);
 }
 
-void QHexEdit::setHighlighting(bool highlighting)
+void HexEdit::setHighlighting(bool highlighting)
 {
     _highlighting = highlighting;
     viewport()->update();
 }
 
-bool QHexEdit::highlighting()
+bool HexEdit::highlighting()
 {
     return _highlighting;
 }
 
-void QHexEdit::setHighlightingColor(const QColor &color)
+void HexEdit::setHighlightingColor(const QColor &color)
 {
     _brushHighlighted = QBrush(color);
     _penHighlighted = QPen(viewport()->palette().color(QPalette::WindowText));
     viewport()->update();
 }
 
-QColor QHexEdit::highlightingColor()
+QColor HexEdit::highlightingColor()
 {
     return _brushHighlighted.color();
 }
 
-void QHexEdit::setOverwriteMode(bool overwriteMode)
+void HexEdit::setOverwriteMode(bool overwriteMode)
 {
     _overwriteMode = overwriteMode;
     emit overwriteModeChanged(overwriteMode);
 }
 
-bool QHexEdit::overwriteMode()
+bool HexEdit::overwriteMode()
 {
     return _overwriteMode;
 }
 
-void QHexEdit::setSelectionColor(const QColor &color)
+void HexEdit::setSelectionColor(const QColor &color)
 {
     _brushSelection = QBrush(color);
     _penSelection = QPen(Qt::white);
     viewport()->update();
 }
 
-QColor QHexEdit::selectionColor()
+QColor HexEdit::selectionColor()
 {
     return _brushSelection.color();
 }
 
-bool QHexEdit::isReadOnly()
+bool HexEdit::isReadOnly()
 {
     return _readOnly;
 }
 
-void QHexEdit::setReadOnly(bool readOnly)
+void HexEdit::setReadOnly(bool readOnly)
 {
     _readOnly = readOnly;
 }
 
-void QHexEdit::setHexCaps(const bool isCaps)
+void HexEdit::setHexCaps(const bool isCaps)
 {
     if (_hexCaps != isCaps)
     {
@@ -342,24 +340,24 @@ void QHexEdit::setHexCaps(const bool isCaps)
     }
 }
 
-bool QHexEdit::hexCaps()
+bool HexEdit::hexCaps()
 {
     return _hexCaps;
 }
 
-void QHexEdit::setDynamicBytesPerLine(const bool isDynamic)
+void HexEdit::setDynamicBytesPerLine(const bool isDynamic)
 {
     _dynamicBytesPerLine = isDynamic;
     resizeEvent(NULL);
 }
 
-bool QHexEdit::dynamicBytesPerLine()
+bool HexEdit::dynamicBytesPerLine()
 {
     return _dynamicBytesPerLine;
 }
 
-// ********************************************************************** Access to data of qhexedit
-bool QHexEdit::setData(QIODevice &iODevice)
+// ********************************************************************** Access to data of hexedit
+bool HexEdit::setData(QIODevice &iODevice)
 {
     bool ok = _chunks->setIODevice(iODevice);
     init();
@@ -367,50 +365,50 @@ bool QHexEdit::setData(QIODevice &iODevice)
     return ok;
 }
 
-QByteArray QHexEdit::dataAt(qint64 pos, qint64 count)
+QByteArray HexEdit::dataAt(qint64 pos, qint64 count)
 {
     return _chunks->data(pos, count);
 }
 
-bool QHexEdit::write(QIODevice &iODevice, qint64 pos, qint64 count)
+bool HexEdit::write(QIODevice &iODevice, qint64 pos, qint64 count)
 {
     return _chunks->write(iODevice, pos, count);
 }
 
 // ********************************************************************** Char handling
-void QHexEdit::insert(qint64 index, char ch)
+void HexEdit::insert(qint64 index, char ch)
 {
     _undoStack->insert(index, ch);
     refresh();
 }
 
-void QHexEdit::remove(qint64 index, qint64 len)
+void HexEdit::remove(qint64 index, qint64 len)
 {
     _undoStack->removeAt(index, len);
     refresh();
 }
 
-void QHexEdit::replace(qint64 index, char ch)
+void HexEdit::replace(qint64 index, char ch)
 {
     _undoStack->overwrite(index, ch);
     refresh();
 }
 
 // ********************************************************************** ByteArray handling
-void QHexEdit::insert(qint64 pos, const QByteArray &ba)
+void HexEdit::insert(qint64 pos, const QByteArray &ba)
 {
     _undoStack->insert(pos, ba);
     refresh();
 }
 
-void QHexEdit::replace(qint64 pos, qint64 len, const QByteArray &ba)
+void HexEdit::replace(qint64 pos, qint64 len, const QByteArray &ba)
 {
     _undoStack->overwrite(pos, len, ba);
     refresh();
 }
 
 // ********************************************************************** Utility functions
-void QHexEdit::ensureVisible()
+void HexEdit::ensureVisible()
 {
     if (_cursorPosition < (_bPosFirst * 2))
         verticalScrollBar()->setValue((int)(_cursorPosition / 2 / _bytesPerLine));
@@ -423,7 +421,7 @@ void QHexEdit::ensureVisible()
     viewport()->update();
 }
 
-qint64 QHexEdit::indexOf(const QByteArray &ba, qint64 from)
+qint64 HexEdit::indexOf(const QByteArray &ba, qint64 from)
 {
     qint64 pos = _chunks->indexOf(ba, from);
     if (pos > -1)
@@ -437,12 +435,12 @@ qint64 QHexEdit::indexOf(const QByteArray &ba, qint64 from)
     return pos;
 }
 
-bool QHexEdit::isModified()
+bool HexEdit::isModified()
 {
     return _modified;
 }
 
-qint64 QHexEdit::lastIndexOf(const QByteArray &ba, qint64 from)
+qint64 HexEdit::lastIndexOf(const QByteArray &ba, qint64 from)
 {
     qint64 pos = _chunks->lastIndexOf(ba, from);
     if (pos > -1)
@@ -456,26 +454,26 @@ qint64 QHexEdit::lastIndexOf(const QByteArray &ba, qint64 from)
     return pos;
 }
 
-void QHexEdit::redo()
+void HexEdit::redo()
 {
     _undoStack->redo();
     setCursorPosition(_chunks->pos()*(_editAreaIsAscii ? 1 : 2));
     refresh();
 }
 
-QString QHexEdit::selectionToReadableString()
+QString HexEdit::selectionToReadableString()
 {
     QByteArray ba = _chunks->data(getSelectionBegin(), getSelectionEnd() - getSelectionBegin());
     return toReadable(ba);
 }
 
-QString QHexEdit::selectedData()
+QString HexEdit::selectedData()
 {
     QByteArray ba = _chunks->data(getSelectionBegin(), getSelectionEnd() - getSelectionBegin()).toHex();
     return ba;
 }
 
-void QHexEdit::setFont(const QFont &font)
+void HexEdit::setFont(const QFont &font)
 {
     QFont theFont(font);
     theFont.setStyleHint(QFont::Monospace);
@@ -495,13 +493,13 @@ void QHexEdit::setFont(const QFont &font)
     viewport()->update();
 }
 
-QString QHexEdit::toReadableString()
+QString HexEdit::toReadableString()
 {
     QByteArray ba = _chunks->data();
     return toReadable(ba);
 }
 
-void QHexEdit::undo()
+void HexEdit::undo()
 {
     _undoStack->undo();
     setCursorPosition(_chunks->pos()*(_editAreaIsAscii ? 1 : 2));
@@ -509,7 +507,7 @@ void QHexEdit::undo()
 }
 
 // ********************************************************************** Handle events
-void QHexEdit::keyPressEvent(QKeyEvent *event)
+void HexEdit::keyPressEvent(QKeyEvent *event)
 {
     // Cursor movements
     if (event->matches(QKeySequence::MoveToNextChar))
@@ -857,7 +855,7 @@ void QHexEdit::keyPressEvent(QKeyEvent *event)
     QAbstractScrollArea::keyPressEvent(event);
 }
 
-void QHexEdit::mouseMoveEvent(QMouseEvent * event)
+void HexEdit::mouseMoveEvent(QMouseEvent * event)
 {
     _blink = false;
     viewport()->update();
@@ -869,7 +867,7 @@ void QHexEdit::mouseMoveEvent(QMouseEvent * event)
     }
 }
 
-void QHexEdit::mousePressEvent(QMouseEvent * event)
+void HexEdit::mousePressEvent(QMouseEvent * event)
 {
     _blink = false;
     viewport()->update();
@@ -882,7 +880,7 @@ void QHexEdit::mousePressEvent(QMouseEvent * event)
     }
 }
 
-void QHexEdit::paintEvent(QPaintEvent *event)
+void HexEdit::paintEvent(QPaintEvent *event)
 {
     QPainter painter(viewport());
     int pxOfsX = horizontalScrollBar()->value();
@@ -1020,7 +1018,7 @@ void QHexEdit::paintEvent(QPaintEvent *event)
     }
 }
 
-void QHexEdit::resizeEvent(QResizeEvent *)
+void HexEdit::resizeEvent(QResizeEvent *)
 {
     if (_dynamicBytesPerLine)
     {
@@ -1041,7 +1039,7 @@ void QHexEdit::resizeEvent(QResizeEvent *)
     adjust();
 }
 
-bool QHexEdit::focusNextPrevChild(bool next)
+bool HexEdit::focusNextPrevChild(bool next)
 {
     if (_addressArea)
     {
@@ -1057,13 +1055,13 @@ bool QHexEdit::focusNextPrevChild(bool next)
 }
 
 // ********************************************************************** Handle selections
-void QHexEdit::resetSelection()
+void HexEdit::resetSelection()
 {
     _bSelectionBegin = _bSelectionInit;
     _bSelectionEnd = _bSelectionInit;
 }
 
-void QHexEdit::resetSelection(qint64 pos)
+void HexEdit::resetSelection(qint64 pos)
 {
     pos = pos / 2 ;
     if (pos < 0)
@@ -1076,7 +1074,7 @@ void QHexEdit::resetSelection(qint64 pos)
     _bSelectionEnd = pos;
 }
 
-void QHexEdit::setSelection(qint64 pos)
+void HexEdit::setSelection(qint64 pos)
 {
     pos = pos / 2;
     if (pos < 0)
@@ -1096,18 +1094,18 @@ void QHexEdit::setSelection(qint64 pos)
     }
 }
 
-qint64 QHexEdit::getSelectionBegin()
+qint64 HexEdit::getSelectionBegin()
 {
     return _bSelectionBegin;
 }
 
-qint64 QHexEdit::getSelectionEnd()
+qint64 HexEdit::getSelectionEnd()
 {
     return _bSelectionEnd;
 }
 
 // ********************************************************************** Private utility functions
-void QHexEdit::init()
+void HexEdit::init()
 {
     _undoStack->clear();
     setAddressOffset(0);
@@ -1117,7 +1115,7 @@ void QHexEdit::init()
     _modified = false;
 }
 
-void QHexEdit::adjust()
+void HexEdit::adjust()
 {
     // recalc Graphics
     if (_addressArea)
@@ -1152,26 +1150,26 @@ void QHexEdit::adjust()
     setCursorPosition(_cursorPosition);
 }
 
-void QHexEdit::dataChangedPrivate(int)
+void HexEdit::dataChangedPrivate(int)
 {
     _modified = _undoStack->index() != 0;
     adjust();
     emit dataChanged();
 }
 
-void QHexEdit::refresh()
+void HexEdit::refresh()
 {
     ensureVisible();
     readBuffers();
 }
 
-void QHexEdit::readBuffers()
+void HexEdit::readBuffers()
 {
     _dataShown = _chunks->data(_bPosFirst, _bPosLast - _bPosFirst + _bytesPerLine + 1, &_markedShown);
     _hexDataShown = QByteArray(_dataShown.toHex());
 }
 
-QString QHexEdit::toReadable(const QByteArray &ba)
+QString HexEdit::toReadable(const QByteArray &ba)
 {
     QString result;
 
@@ -1196,7 +1194,7 @@ QString QHexEdit::toReadable(const QByteArray &ba)
     return result;
 }
 
-void QHexEdit::updateCursor()
+void HexEdit::updateCursor()
 {
     if (_blink)
         _blink = false;

@@ -1,40 +1,38 @@
-#ifndef QHEXEDIT_H
-#define QHEXEDIT_H
+#pragma once
 
 #include <QAbstractScrollArea>
 #include <QPen>
 #include <QBrush>
 
-#include "chunks.h"
-#include "commands.h"
+#include "chunks.hpp"
+#include "commands.hpp"
 
-#ifdef QHEXEDIT_EXPORTS
-#define QHEXEDIT_API Q_DECL_EXPORT
-#elif QHEXEDIT_IMPORTS
-#define QHEXEDIT_API Q_DECL_IMPORT
+#ifdef QTILITIES_HEXEDIT_EXPORTS
+#define QTILITIES_HEXEDIT_API Q_DECL_EXPORT
+#elif QTILITIES_HEXEDIT_IMPORTS
+#define QTILITIES_HEXEDIT_API Q_DECL_IMPORT
 #else
-#define QHEXEDIT_API
+#define QTILITIES_HEXEDIT_API
 #endif
 
 /** \mainpage
-QHexEdit is a binary editor widget for Qt.
+HexEdit is a binary editor widget for Qt.
 
 \version Version 0.8.9
-\image html qhexedit.png
+\image html hexedit.png
 */
 
-
-/** QHexEdit is a hex editor widget written in C++ for the Qt (Qt4, Qt5) framework.
+/** HexEdit is a hex editor widget written in C++ for the Qt (Qt4, Qt5) framework.
 It is a simple editor for binary data, just like QPlainTextEdit is for text
 data. There are sip configuration files included, so it is easy to create
 bindings for PyQt and you can use this widget also in python 2 and 3.
 
-QHexEdit takes the data of a QByteArray (setData()) and shows it. You can use
+HexEdit takes the data of a QByteArray (setData()) and shows it. You can use
 the mouse or the keyboard to navigate inside the widget. If you hit the keys
 (0..9, a..f) you will change the data. Changed data is highlighted and can be
 accessed via data().
 
-Normally QHexEdit works in the overwrite mode. You can set overwrite mode(false)
+Normally HexEdit works in the overwrite mode. You can set overwrite mode(false)
 and insert data. In this case the size of data() increases. It is also possible
 to delete bytes (del or backspace), here the size of data decreases.
 
@@ -45,18 +43,19 @@ the (does not change the length) data. In insert mode, clipboard data will be
 inserted. The clipboard content is expected in ASCII Hex notation. Unknown
 characters will be ignored.
 
-QHexEdit comes with undo/redo functionality. All changes can be undone, by
+HexEdit comes with undo/redo functionality. All changes can be undone, by
 pressing the undo-key (usually ctr-z). They can also be redone afterwards.
 The undo/redo framework is cleared, when setData() sets up a new
 content for the editor. You can search data inside the content with indexOf()
 and lastIndexOf(). The replace() function is to change located subdata. This
 'replaced' data can also be undone by the undo/redo framework.
 
-QHexEdit is based on QIODevice, that's why QHexEdit can handle big amounts of
+HexEdit is based on QIODevice, that's why HexEdit can handle big amounts of
 data. The size of edited data can be more then two gigabytes without any
 restrictions.
 */
-class QHEXEDIT_API QHexEdit : public QAbstractScrollArea
+
+class QTILITIES_HEXEDIT_API HexEdit : public QAbstractScrollArea
 {
     Q_OBJECT
 
@@ -109,14 +108,14 @@ class QHEXEDIT_API QHexEdit : public QAbstractScrollArea
     Q_PROPERTY(int bytesPerLine READ bytesPerLine WRITE setBytesPerLine)
 
     /*! Property cursorPosition sets or gets the position of the editor cursor
-    in QHexEdit. Every byte in data has two cursor positions: the lower and upper
+    in HexEdit. Every byte in data has two cursor positions: the lower and upper
     Nibble. Maximum cursor position is factor two of data.size().
     */
     Q_PROPERTY(qint64 cursorPosition READ cursorPosition WRITE setCursorPosition)
 
-    /*! Property data holds the content of QHexEdit. Call setData() to set the
-    content of QHexEdit, data() returns the actual content. When calling setData()
-    with a QByteArray as argument, QHexEdit creates a internal copy of the data
+    /*! Property data holds the content of HexEdit. Call setData() to set the
+    content of HexEdit, data() returns the actual content. When calling setData()
+    with a QByteArray as argument, HexEdit creates a internal copy of the data
     If you want to edit big files please use setData(), based on QIODevice.
     */
     Q_PROPERTY(QByteArray data READ data WRITE setData NOTIFY dataChanged)
@@ -164,14 +163,14 @@ class QHEXEDIT_API QHexEdit : public QAbstractScrollArea
     Q_PROPERTY(QFont font READ font WRITE setFont)
 
 public:
-    /*! Creates an instance of QHexEdit.
-    \param parent Parent widget of QHexEdit.
+    /*! Creates an instance of HexEdit.
+    \param parent Parent widget of HexEdit.
     */
-    QHexEdit(QWidget *parent=0);
+    HexEdit(QWidget *parent=0);
 
-    // Access to data of qhexedit
+    // Access to data of hexedit
 
-    /*! Sets the data of QHexEdit. The QIODevice will be opened just before reading
+    /*! Sets the data of HexEdit. The QIODevice will be opened just before reading
     and closed immediately afterwards. This is to allow other programs to rewrite
     the file while editing it.
     */
@@ -240,7 +239,7 @@ public:
      */
     void ensureVisible();
 
-    /*! Find first occurrence of ba in QHexEdit data
+    /*! Find first occurrence of ba in HexEdit data
      * \param ba Data to find
      * \param from Point where the search starts
      * \return pos if fond, else -1
@@ -252,27 +251,27 @@ public:
      */
     bool isModified();
 
-    /*! Find last occurrence of ba in QHexEdit data
+    /*! Find last occurrence of ba in HexEdit data
      * \param ba Data to find
      * \param from Point where the search starts
      * \return pos if fond, else -1
      */
     qint64 lastIndexOf(const QByteArray &ba, qint64 from);
 
-    /*! Gives back a formatted image of the selected content of QHexEdit
+    /*! Gives back a formatted image of the selected content of HexEdit
     */
     QString selectionToReadableString();
 
-    /*! Return the selected content of QHexEdit as QByteArray
+    /*! Return the selected content of HexEdit as QByteArray
     */
     QString selectedData();
 
-    /*! Set Font of QHexEdit
+    /*! Set Font of HexEdit
      * \param font
      */
     void setFont(const QFont &font);
 
-    /*! Gives back a formatted image of the content of QHexEdit
+    /*! Gives back a formatted image of the content of HexEdit
     */
     QString toReadableString();
 
@@ -305,7 +304,7 @@ signals:
 
 /*! \cond docNever */
 public:
-    ~QHexEdit();
+    ~HexEdit();
 
     // Properties
     bool addressArea();
@@ -415,7 +414,7 @@ private:
     qint64 _bPosCurrent;                        // current position
 
     // variables to store the property values
-    bool _addressArea;                          // left area of QHexEdit
+    bool _addressArea;                          // left area of HexEdit
     QColor _addressAreaColor;
     QColor _asciiAreaColor;
     QColor _addressFontColor;
@@ -445,7 +444,7 @@ private:
     QTimer _cursorTimer;                        // for blinking cursor
     qint64 _cursorPosition;                     // absolute position of cursor, 1 Byte == 2 tics
     QRect _cursorRect;                          // physical dimensions of cursor
-    QByteArray _data;                           // QHexEdit's data, when setup with QByteArray
+    QByteArray _data;                           // HexEdit's data, when setup with QByteArray
     QByteArray _dataShown;                      // data in the current View
     QByteArray _hexDataShown;                   // data in view, transformed to hex
     qint64 _lastEventSize;                      // size, which was emitted last time
@@ -455,5 +454,3 @@ private:
     UndoStack * _undoStack;                     // Stack to store edit actions for undo/redo
     /*! \endcond docNever */
 };
-
-#endif // QHEXEDIT_H

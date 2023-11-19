@@ -1,6 +1,6 @@
-#include "commands.h"
-#include <QUndoCommand>
+#include <hexedit/commands.hpp>
 
+#include <QUndoCommand>
 
 // Helper class to store single byte commands
 class CharCommand : public QUndoCommand

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QHexEdit - Find/Replace</string>
+   <string>HexEdit - Find/Replace</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <item>

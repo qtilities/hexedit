@@ -1,20 +1,21 @@
-#include <QApplication>
-#include <QIcon>
+#include "mainwindow.hpp"
 
-#include "mainwindow.h"
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QIcon>
 
 int main(int argc, char *argv[])
 {
-    Q_INIT_RESOURCE(qhexedit);
     QApplication app(argc, argv);
-    app.setApplicationName("QHexEdit");
-    app.setOrganizationName("QHexEdit");
-    app.setWindowIcon(QIcon(":images/qhexedit.ico"));
+    app.setApplicationName(APPLICATION_NAME);
+    app.setApplicationDisplayName(APPLICATION_DISPLAY_NAME);
+    app.setOrganizationName(ORGANIZATION_NAME);
+    app.setWindowIcon(QIcon(":appicon"));
 
     // Identify locale and load translation if available
     QString locale = QLocale::system().name();
     QTranslator translator;
-    translator.load(QString("qhexedit_") + locale);
+    translator.load(QString("hexedit_") + locale);
     app.installTranslator(&translator);
 
     QCommandLineParser parser;

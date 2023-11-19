@@ -1,4 +1,5 @@
-#include "chunks.h"
+#include <hexedit/chunks.hpp>
+
 #include <limits.h>
 
 #define NORMAL 0

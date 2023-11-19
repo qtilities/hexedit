@@ -5,9 +5,9 @@
 
 #include <QUndoStack>
 
-#include "chunks.h"
+#include "chunks.hpp"
 
-/*! CharCommand is a class to provid undo/redo functionality in QHexEdit.
+/*! CharCommand is a class to provid undo/redo functionality in HexEdit.
 A QUndoCommand represents a single editing action on a document. CharCommand
 is responsable for manipulations on single chars. It can insert. overwrite and
 remove characters. A manipulation stores allways two actions

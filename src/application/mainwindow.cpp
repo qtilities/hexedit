@@ -1,3 +1,5 @@
+#include "mainwindow.hpp"
+
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QApplication>
@@ -10,8 +12,6 @@
 #include <QFontDialog>
 #include <QDragEnterEvent>
 #include <QDropEvent>
-
-#include "mainwindow.h"
 
 /*****************************************************************************/
 /* Public methods */
@@ -55,8 +55,8 @@ void MainWindow::dropEvent(QDropEvent *event)
 /*****************************************************************************/
 void MainWindow::about()
 {
-   QMessageBox::about(this, tr("About QHexEdit"),
-            tr("The QHexEdit example is a short Demo of the QHexEdit Widget."));
+   QMessageBox::about(this, tr("About HexEdit"),
+            tr("Hex Editor."));
 }
 
 void MainWindow::dataChanged()
@@ -109,10 +109,9 @@ void MainWindow::saveSelectionToReadableFile()
     {
         QFile file(fileName);
         if (!file.open(QFile::WriteOnly | QFile::Text)) {
-            QMessageBox::warning(this, tr("QHexEdit"),
+            QMessageBox::warning(this, tr("HexEdit"),
                                  tr("Cannot write file %1:\n%2.")
-                                 .arg(fileName)
-                                 .arg(file.errorString()));
+                                 .arg(fileName, file.errorString()));
             return;
         }
 
@@ -131,10 +130,9 @@ void MainWindow::saveToReadableFile()
     {
         QFile file(fileName);
         if (!file.open(QFile::WriteOnly | QFile::Text)) {
-            QMessageBox::warning(this, tr("QHexEdit"),
+            QMessageBox::warning(this, tr("HexEdit"),
                                  tr("Cannot write file %1:\n%2.")
-                                 .arg(fileName)
-                                 .arg(file.errorString()));
+                                 .arg(fileName, file.errorString()));
             return;
         }
 
@@ -186,7 +184,7 @@ void MainWindow::init()
     connect(optionsDialog, SIGNAL(accepted()), this, SLOT(optionsAccepted()));
     isUntitled = true;
 
-    hexEdit = new QHexEdit;
+    hexEdit = new HexEdit;
     setCentralWidget(hexEdit);
     connect(hexEdit, SIGNAL(overwriteModeChanged(bool)), this, SLOT(setOverwriteMode(bool)));
     connect(hexEdit, SIGNAL(dataChanged()), this, SLOT(dataChanged()));
@@ -204,12 +202,16 @@ void MainWindow::init()
 
 void MainWindow::createActions()
 {
-    openAct = new QAction(QIcon(":/images/open.png"), tr("&Open..."), this);
+    openAct = new QAction(QIcon::fromTheme("document-open", QIcon(":/open")),
+                          tr("&Open..."),
+                          this);
     openAct->setShortcuts(QKeySequence::Open);
     openAct->setStatusTip(tr("Open an existing file"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
 
-    saveAct = new QAction(QIcon(":/images/save.png"), tr("&Save"), this);
+    saveAct = new QAction(QIcon::fromTheme("document-save", QIcon(":/save")),
+                          tr("&Save"),
+                          this);
     saveAct->setShortcuts(QKeySequence::Save);
     saveAct->setStatusTip(tr("Save the document to disk"));
     connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
@@ -228,11 +230,15 @@ void MainWindow::createActions()
     exitAct->setStatusTip(tr("Exit the application"));
     connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
 
-    undoAct = new QAction(QIcon(":/images/undo.png"), tr("&Undo"), this);
+    undoAct = new QAction(QIcon::fromTheme("edit-undo", QIcon(":/undo")),
+                          tr("&Undo"),
+                          this);
     undoAct->setShortcuts(QKeySequence::Undo);
     connect(undoAct, SIGNAL(triggered()), hexEdit, SLOT(undo()));
 
-    redoAct = new QAction(QIcon(":/images/redo.png"), tr("&Redo"), this);
+    redoAct = new QAction(QIcon::fromTheme("edit-redo", QIcon(":/redo")),
+                          tr("&Redo"),
+                          this);
     redoAct->setShortcuts(QKeySequence::Redo);
     connect(redoAct, SIGNAL(triggered()), hexEdit, SLOT(redo()));
 
@@ -248,7 +254,9 @@ void MainWindow::createActions()
     aboutQtAct->setStatusTip(tr("Show the Qt library's About box"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
-    findAct = new QAction(QIcon(":/images/find.png"), tr("&Find/Replace"), this);
+    findAct = new QAction(QIcon::fromTheme("edit-find", QIcon(":/find")),
+                          tr("&Find/Replace"),
+                          this);
     findAct->setShortcuts(QKeySequence::Find);
     findAct->setStatusTip(tr("Show the Dialog for finding and replacing"));
     connect(findAct, SIGNAL(triggered()), this, SLOT(showSearchDialog()));
@@ -341,7 +349,7 @@ void MainWindow::loadFile(const QString &fileName)
 {
     file.setFileName(fileName);
     if (!hexEdit->setData(file)) {
-        QMessageBox::warning(this, tr("QHexEdit"),
+        QMessageBox::warning(this, tr("HexEdit"),
                              tr("Cannot read file %1:\n%2.")
                              .arg(fileName)
                              .arg(file.errorString()));
@@ -369,11 +377,13 @@ void MainWindow::readSettings()
     hexEdit->setAddressAreaColor(settings.value("AddressAreaColor").value<QColor>());
     hexEdit->setSelectionColor(settings.value("SelectionColor").value<QColor>());
     hexEdit->setFont(settings.value("WidgetFont").value<QFont>());
+#if 0
+    // TODO: Check for library version?
     hexEdit->setAddressFontColor(settings.value("AddressFontColor").value<QColor>());
     hexEdit->setAsciiAreaColor(settings.value("AsciiAreaColor").value<QColor>());
     hexEdit->setAsciiFontColor(settings.value("AsciiFontColor").value<QColor>());
     hexEdit->setHexFontColor(settings.value("HexFontColor").value<QColor>());
-
+#endif
     hexEdit->setAddressWidth(settings.value("AddressAreaWidth").toInt());
     hexEdit->setBytesPerLine(settings.value("BytesPerLine").toInt());
     hexEdit->setHexCaps(settings.value("HexCaps", true).toBool());
@@ -398,7 +408,7 @@ bool MainWindow::saveFile(const QString &fileName)
     QApplication::restoreOverrideCursor();
 
     if (!ok) {
-        QMessageBox::warning(this, tr("QHexEdit"),
+        QMessageBox::warning(this, tr("HexEdit"),
                              tr("Cannot write file %1.")
                              .arg(fileName));
         return false;
@@ -415,9 +425,9 @@ void MainWindow::setCurrentFile(const QString &fileName)
     isUntitled = fileName.isEmpty();
     setWindowModified(false);
     if (fileName.isEmpty())
-        setWindowFilePath("QHexEdit");
+        setWindowFilePath("HexEdit");
     else
-        setWindowFilePath(curFile + " - QHexEdit");
+        setWindowFilePath(curFile + " - HexEdit");
 }
 
 QString MainWindow::strippedName(const QString &fullFileName)

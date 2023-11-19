@@ -1,11 +1,11 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
+
+#include "optionsdialog.hpp"
+#include "searchdialog.hpp"
+
+#include <hexedit/hexedit.hpp>
 
 #include <QMainWindow>
-
-#include "../src/qhexedit.h"
-#include "optionsdialog.h"
-#include "searchdialog.h"
 
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -87,12 +87,10 @@ private:
     QAction *findAct;
     QAction *findNextAct;
 
-    QHexEdit *hexEdit;
+    HexEdit *hexEdit;
     OptionsDialog *optionsDialog;
     SearchDialog *searchDialog;
     QLabel *lbAddress, *lbAddressName;
     QLabel *lbOverwriteMode, *lbOverwriteModeName;
     QLabel *lbSize, *lbSizeName;
 };
-
-#endif

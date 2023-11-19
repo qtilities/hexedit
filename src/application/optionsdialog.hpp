@@ -1,5 +1,4 @@
-#ifndef OPTIONSDIALOG_H
-#define OPTIONSDIALOG_H
+#pragma once
 
 #include <QtCore>
 #include <QDialog>
@@ -36,5 +35,3 @@ private:
     void writeSettings();
     void setColor(QWidget *widget, QColor color);
 };
-
-#endif // OPTIONSDIALOG_H
