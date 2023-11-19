@@ -351,8 +351,7 @@ void MainWindow::loadFile(const QString &fileName)
     if (!hexEdit->setData(file)) {
         QMessageBox::warning(this, tr("HexEdit"),
                              tr("Cannot read file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));
+                             .arg(fileName, file.errorString()));
         return;
     }
     setCurrentFile(fileName);

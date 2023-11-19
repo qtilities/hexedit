@@ -7,8 +7,10 @@ SearchDialog::SearchDialog(HexEdit *hexEdit, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SearchDialog)
 {
-  ui->setupUi(this);
-  _hexEdit = hexEdit;
+    ui->setupUi(this);
+    _hexEdit = hexEdit;
+
+    setWindowTitle(tr("Find/Replace"));
 }
 
 SearchDialog::~SearchDialog()

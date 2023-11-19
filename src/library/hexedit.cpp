@@ -289,7 +289,7 @@ bool HexEdit::highlighting()
 void HexEdit::setHighlightingColor(const QColor &color)
 {
     _brushHighlighted = QBrush(color);
-    _penHighlighted = QPen(viewport()->palette().color(QPalette::WindowText));
+    _penHighlighted = QPen(viewport()->palette().color(QPalette::Highlight));
     viewport()->update();
 }
 

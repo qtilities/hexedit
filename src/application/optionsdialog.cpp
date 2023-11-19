@@ -11,6 +11,8 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     ui->setupUi(this);
     readSettings();
     writeSettings();
+
+    setWindowTitle(tr("Options"));
 }
 
 OptionsDialog::~OptionsDialog()
